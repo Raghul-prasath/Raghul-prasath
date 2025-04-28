@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Project Management Guide</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@600&family=Roboto&display=swap" rel="stylesheet">
+  <style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f9f9f9;
+}
+h1, h2 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+}
+h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+}
+h2 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+  color: #2c3e50;
+  position: relative;
+  padding-bottom: 0.5rem;
+}
+h2:after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 60px;
+  height: 4px;
+  background-color: #1abc9c;
+}
+p {
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+header {
+  background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+  color: white;
+  text-align: center;
+  padding: 3rem 1rem;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+header h1 {
+  max-width: 800px;
+  margin: 0 auto 1rem;
+}
+nav {
+  background-color: #34495e;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  padding: 0.5rem;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+nav a {
+  color: white;
+  text-decoration: none;
+  padding: 0.75rem 1.25rem;
+  margin: 0.25rem;
+  border-radius: 4px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+nav a:hover {
+  background-color: #1abc9c;
+  transform: translateY(-2px);
+}
+section {
+  padding: 5rem 2rem;
+  max-width: 1200px;
+  margin: 0 auto;
+  border-bottom: 1px solid #eee;
+  background-color: white;
+}
+
+section:nth-child(odd) {
+  background-color: #f5f8fa;
+}
+
+#home {
+  text-align: center;
+  padding: 6rem 2rem;
+  background: linear-gradient(rgba(255, 255, 255, 0.9), rgba(255, 255, 255, 0.9)), 
+              url('https://images.unsplash.com/photo-1531403009284-440f080d1e12') center/cover no-repeat;
+}
+
+#home p {
+  max-width: 800px;
+  margin: 0 auto 2rem;
+  font-size: 1.25rem;
+}
+
+.button {
+  display: inline-block;
+  background-color: #1abc9c;
+  color: white;
+  padding: 0.75rem 1.75rem;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.button:hover {
+  background-color: #16a085;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+.contact-form {
+  display: flex;
+  flex-direction: column;
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.contact-form input,
+.contact-form textarea {
+  margin-bottom: 1.25rem;
+  padding: 1rem;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-family: 'Roboto', sans-serif;
+  transition: border-color 0.3s;
+}
+
+.contact-form input:focus,
+.contact-form textarea:focus {
+  outline: none;
+  border-color: #3498db;
+  box-shadow: 0 0 0 3px rgba(52, 152, 219, 0.2);
+}
+
+.contact-form button {
+  background-color: #1abc9c;
+  color: white;
+  border: none;
+  padding: 1rem;
+  border-radius: 50px;
+  cursor: pointer;
+  font-size: 1rem;
+  font-weight: 500;
+  transition: all 0.3s ease;
+  letter-spacing: 0.5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.contact-form button:hover {
+  background-color: #16a085;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.15);
+}
+
+footer {
+  background-color: #2c3e50;
+  color: white;
+  text-align: center;
+  padding: 3rem 1rem;
+}
+
+footer p {
+  margin-bottom: 0;
+}
+
+ul {
+  margin: 0 0 1.5rem 2rem;
+  list-style-type: circle;
+}
+
+li {
+  margin-bottom: 0.5rem;
+}
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+section {
+  animation: fadeIn 0.8s ease-out forwards;
+}
+
+#teams, #leadership, #strategy {
+  border-left: 4px solid #3498db;
+}
+
+#risk, #governance, #implementation {
+  border-left: 4px solid #e74c3c;
+}
+
+#ethics, #sustainability, #stakeholders {
+  border-left: 4px solid #2ecc71;
+}
+
+#planning, #methodologies, #ai {
+  border-left: 4px solid #f1c40f;
+}
+
+@media (max-width: 768px) {
+  nav {
+    flex-direction: column;
+    align-items: center;
+    padding: 0.25rem;
+  }
+  
+  h1 {
+    font-size: 2rem;
+  }
+  
+  h2 {
+    font-size: 1.75rem;
+  }
+  
+  section {
+    padding: 3rem 1.5rem;
+  }
+  
+  .button {
+    padding: 0.6rem 1.2rem;
+  }
+}
+
+@media (max-width: 480px) {
+  nav a {
+    padding: 0.5rem 0.75rem;
+    margin: 0.2rem;
+    font-size: 0.9rem;
+  }
+  
+  h1 {
+    font-size: 1.75rem;
+  }
+  
+  h2 {
+    font-size: 1.5rem;
+  }
+  
+  p {
+    font-size: 1rem;
+  }
+  
+  section {
+    padding: 2.5rem 1rem;
+  }
+}
+  </style>
+</head>
+<body>
+
+<header>
+  <h1>Project Management Guide for Small Businesses and Charities</h1>
+</header>
+
+<nav>
+  <a href="#home">Home</a>
+  <a href="#teams">Teams</a>
+  <a href="#risk">Risk</a>
+  <a href="#leadership">Leadership</a>
+  <a href="#ethics">Ethics</a>
+  <a href="#sustainability">Sustainability</a>
+  <a href="#governance">Governance</a>
+  <a href="#strategy">Strategy</a>
+  <a href="#planning">Planning</a>
+  <a href="#implementation">Implementation</a>
+  <a href="#stakeholders">Stakeholders</a>
+  <a href="#methodologies">Methodologies</a>
+  <a href="#ai">AI</a>
+  <a href="#about">About</a>
+  <a href="#contact">Contact</a>
+  <a href="#resources">Resources</a>
+</nav>
+
+<section id="home">
+  <h2>Welcome</h2>
+  <p>Empowering Ireland's small businesses and charities to manage projects efficiently, sustainably, and ethically. Let's get started!</p>
+  <a href="#teams" class="button">Start Learning</a>
+</section>
+
+<section id="teams">
+  <h2>Building Effective Teams</h2>
+  <p>Great projects start with great teams! Focus on clear roles, trust-building, and communication platforms like Slack or MS Teams.</p>
+  <a href="https://www.youtube.com/watch?v=O5g9V6h3o84" class="button" target="_blank">Watch Team Building</a>
+</section>
+
+<section id="risk">
+  <h2>Managing Risk Proactively</h2>
+  <p>Identify, assess, and control risks with simple tools like SWOT analysis and Risk Registers. Plan your contingencies early.</p>
+  <a href="https://www.youtube.com/watch?v=U6V0XAF6ZWg" class="button" target="_blank">Learn Risk Management</a>
+</section>
+
+<section id="leadership">
+  <h2>Inspiring Leadership</h2>
+  <p>Lead by serving your team. Adapt leadership styles and build emotional intelligence.</p>
+  <a href="https://www.youtube.com/watch?v=qp0HIF3SfI4" class="button" target="_blank">Watch Leadership Talk</a>
+</section>
+
+<section id="ethics">
+  <h2>Upholding Ethics</h2>
+  <p>Transparency, fairness, and community focus form the ethical bedrock of every successful project.</p>
+</section>
+
+<section id="sustainability">
+  <h2>Embedding Sustainability</h2>
+  <p>Adopt "Triple Bottom Line" thinking — benefit People, Planet, and Profit. Small projects can drive big change!</p>
+</section>
+
+<section id="governance">
+  <h2>Governance in Projects</h2>
+  <p>Clear roles, structured approvals, and oversight ensure projects stay on track and accountable.</p>
+</section>
+
+<section id="strategy">
+  <h2>Strategic Alignment</h2>
+  <p>Ensure projects directly support your organization’s mission and long-term goals. Projects deliver strategy!</p>
+</section>
+
+<section id="planning">
+  <h2>Effective Planning</h2>
+  <p>Use Work Breakdown Structures, Gantt Charts, and Task Lists to organize and schedule project activities.</p>
+</section>
+
+<section id="implementation">
+  <h2>Executing with Precision</h2>
+  <p>Stay agile, track progress regularly, and maintain team momentum for smooth project delivery.</p>
+</section>
+
+<section id="stakeholders">
+  <h2>Engaging Stakeholders</h2>
+  <p>Identify, prioritize, and maintain positive relationships with all stakeholders throughout the project lifecycle.</p>
+</section>
+
+<section id="methodologies">
+  <h2>Choosing Methodologies</h2>
+  <p>Waterfall for structured projects, Agile for flexibility and innovation. Pick the right tool for your project needs!</p>
+</section>
+
+<section id="ai">
+  <h2>AI in Project Management</h2>
+  <p>Leverage AI for automation, risk prediction, and smart scheduling while maintaining ethical oversight.</p>
+</section>
+
+<section id="about">
+  <h2>About the Author</h2>
+  <p>I'm a MSc Project Management student passionate about helping charities and small businesses achieve project success with practical, modern tools!</p>
+</section>
+
+<section id="contact">
+  <h2>Contact</h2>
+  <form class="contact-form">
+    <input type="text" placeholder="Your Name" required>
+    <input type="email" placeholder="Your Email" required>
+    <textarea rows="5" placeholder="Your Message" required></textarea>
+    <button type="submit">Send Message</button>
+  </form>
+</section>
+
+<section id="resources">
+  <h2>Resources</h2>
+  <ul>
+    <li>Project Management Institute (PMI) – PMBOK Guide</li>
+    <li>Harvard Business Review – Leadership Insights</li>
+    <li>McKinsey – Agile Organizations Research</li>
+    <li>Gartner – AI in Project Management Reports</li>
+  </ul>
+  <p>Useful Tools: Trello, Asana, Microsoft Project, Notion</p>
+</section>
+
+<footer>
+  <p>© 2025 Project Management Guide for Ireland | Created with ❤ for Small Businesses and Charities.</p>
+</footer>
+
+</body>
+</html>
